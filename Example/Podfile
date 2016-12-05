@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'YPSegmentController_Example' do
+  pod 'YPSegmentController', :path => '../'
+
+  target 'YPSegmentController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
