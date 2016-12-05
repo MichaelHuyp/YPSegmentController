@@ -1,0 +1,6 @@
+framework module Pods_YPSegmentController_Example {
+  umbrella header "Pods-YPSegmentController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

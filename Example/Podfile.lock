@@ -1,0 +1,16 @@
+PODS:
+  - YPSegmentController (0.1.0)
+
+DEPENDENCIES:
+  - YPSegmentController (from `../`)
+
+EXTERNAL SOURCES:
+  YPSegmentController:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YPSegmentController: 2cbdbbb8fbf3ec60892d609bc4484bf9120044e5
+
+PODFILE CHECKSUM: a8fe909cb727cc125bc34a9e617af4993c01da4f
+
+COCOAPODS: 1.1.1

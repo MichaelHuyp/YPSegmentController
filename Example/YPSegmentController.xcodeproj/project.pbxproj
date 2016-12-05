@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		068CC1473B6DB09422E4FB8C /* Pods_YPSegmentController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E255BC8546577D4FFF3E510E /* Pods_YPSegmentController_Tests.framework */; };
+		5F53EB791DF56A56001C164D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F53EB781DF56A56001C164D /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -36,9 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A01ACF50E45445BF5BE2F26 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1A01ACF50E45445BF5BE2F26 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		23B165225D1D16350082E0CF /* Pods-YPSegmentController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPSegmentController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YPSegmentController_Example/Pods-YPSegmentController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		4F4F9C144D46DBC35E85D46B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4F4F9C144D46DBC35E85D46B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5F53EB781DF56A56001C164D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YPSegmentController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YPSegmentController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +65,7 @@
 		C80F567E91194B29071E6333 /* Pods_YPSegmentController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YPSegmentController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E255BC8546577D4FFF3E510E /* Pods_YPSegmentController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YPSegmentController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE8449E0FE1A3769FADE35D8 /* Pods-YPSegmentController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPSegmentController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YPSegmentController_Tests/Pods-YPSegmentController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FE3E501A3BBB885EC891F180 /* YPSegmentController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = YPSegmentController.podspec; path = ../YPSegmentController.podspec; sourceTree = "<group>"; };
+		FE3E501A3BBB885EC891F180 /* YPSegmentController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YPSegmentController.podspec; path = ../YPSegmentController.podspec; sourceTree = "<group>"; };
 		FFBE5FA1A7419B7D515906EF /* Pods-YPSegmentController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPSegmentController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YPSegmentController_Example/Pods-YPSegmentController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 			children = (
 				6003F59C195388D20070C39A /* YPAppDelegate.h */,
 				6003F59D195388D20070C39A /* YPAppDelegate.m */,
+				5F53EB781DF56A56001C164D /* Launch Screen.storyboard */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* YPViewController.h */,
 				6003F5A6195388D20070C39A /* YPViewController.m */,
@@ -247,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = MichaelHuyp;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = QFPBDT5J32;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -278,6 +284,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				5F53EB791DF56A56001C164D /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -513,6 +520,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = QFPBDT5J32;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YPSegmentController/YPSegmentController-Prefix.pch";
 				INFOPLIST_FILE = "YPSegmentController/YPSegmentController-Info.plist";
@@ -529,6 +537,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = QFPBDT5J32;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YPSegmentController/YPSegmentController-Prefix.pch";
 				INFOPLIST_FILE = "YPSegmentController/YPSegmentController-Info.plist";
