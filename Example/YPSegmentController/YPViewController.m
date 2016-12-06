@@ -17,7 +17,6 @@
 
 @property (nonatomic, weak) YPSegmentController *segmentController;
 
-
 @end
 
 @implementation YPViewController
@@ -38,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.title = @"2016互联网十强企业";
     
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -45,14 +45,19 @@
     self.segmentController.view.frame = self.view.bounds;
     [self.view addSubview:self.segmentController.view];
     
-    
+    // 更新选项条的各项配置
     [self.segmentController.segmentBar updateWithConfig:^(YPSegmentBarConfig *config) {
         config.itemTitleNormalColor = [UIColor blueColor];
         config.itemTitleSelectColor = [UIColor redColor];
     }];
     
+    // 是否开启渐变色
     self.segmentController.segmentBar.enableTitleGradient = YES;
+    
+    // 联动模式是否开启进度实时更新
     self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeProgress;
+    
+    // 选项条的滚动模式是否为居中模式
     self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeCenter;
     
     UIViewController *vc1 = [UIViewController new];
@@ -66,7 +71,6 @@
     UIViewController *vc3 = [UIViewController new];
     vc3.title = @"蚂蚁金服";
     vc3.view.backgroundColor = YPRandomColor_RGB;
-    
     
     UIViewController *vc4 = [UIViewController new];
     vc4.title = @"百度";
@@ -96,8 +100,9 @@
     vc10.title = @"美团-大众点评";
     vc10.view.backgroundColor = YPRandomColor_RGB;
     
-    [self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
     
+    // 配置子控制器
+    [self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
 }
 
 - (void)viewWillLayoutSubviews

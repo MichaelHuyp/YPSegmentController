@@ -255,7 +255,7 @@
     // 滚动模式
     if (self.scrollMode == YPSegmentBarScrollModeNormal) {
         // 转换坐标系
-        CGRect newFrame = [btn convertRect:btn.bounds toView:self.contentView];
+        CGRect newFrame = [btn convertRect:btn.bounds toView:self.window];
         CGFloat scrollX = self.contentView.contentOffset.x;
         if (newFrame.origin.x < (btn.width + self.config.minMargin)) {
             scrollX = btn.centerX - btn.width * 1.5 - self.config.minMargin;

@@ -1,9 +1,9 @@
 {
   "name": "YPSegmentController",
-  "version": "0.1.0",
-  "summary": "A short description of YPSegmentController.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/YPSegmentController",
+  "version": "1.0.0",
+  "summary": "好用的选项卡控制器控件",
+  "description": "平平淡淡的选项卡控制器的封装................",
+  "homepage": "https://github.com/MichaelHuyp/YPSegmentController",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "MichaelHuyp": "86812684@qq.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/YPSegmentController.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/MichaelHuyp/YPSegmentController.git",
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
