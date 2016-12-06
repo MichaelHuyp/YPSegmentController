@@ -10,7 +10,7 @@
 #import "UIView+YPSegment.h"
 #import "UIColor+YPSegment.h"
 
-NSNotificationName const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSelectionDidChangeNotification";
+NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSelectionDidChangeNotification";
 
 @interface YPSegmentBar ()
 {

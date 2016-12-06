@@ -59,4 +59,4 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 
 @end
 
-UIKIT_EXTERN NSNotificationName const YPSegmentBarSelectionDidChangeNotification;
+UIKIT_EXTERN NSString * const YPSegmentBarSelectionDidChangeNotification;
