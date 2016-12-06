@@ -10,6 +10,8 @@
 #import "UIView+YPSegment.h"
 #import "UIColor+YPSegment.h"
 
+NSNotificationName const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSelectionDidChangeNotification";
+
 @interface YPSegmentBar ()
 {
     // 记录最后一次点击的按钮
@@ -49,6 +51,7 @@
 @end
 
 @implementation YPSegmentBar
+
 
 #pragma mark - Public
 - (void)updateWithConfig:(void(^)(YPSegmentBarConfig *config))block
@@ -236,6 +239,9 @@
     if ([self.delegate respondsToSelector:@selector(segmentBar:didSelectedIndex:fromIndex:)]) {
         [self.delegate segmentBar:self didSelectedIndex:btn.tag fromIndex:_lastBtn.tag];
     }
+    
+    // 通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:YPSegmentBarSelectionDidChangeNotification object:nil userInfo:@{@"didSelectedIndex" : @(btn.tag), @"fromIndex" : @(_lastBtn.tag)}];
     
     [btn setTitleColor:self.config.itemTitleNormalColor forState:UIControlStateNormal];
     [btn setTitleColor:self.config.itemTitleSelectColor forState:UIControlStateSelected];

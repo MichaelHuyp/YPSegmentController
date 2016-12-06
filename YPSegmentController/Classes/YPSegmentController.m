@@ -73,18 +73,38 @@
 }
 
 #pragma mark - Private
+- (void)addChildVcViewToIndex:(NSInteger)index
+{
+    UIViewController *childVc = self.childViewControllers[index];
+    childVc.view.frame = CGRectMake(index * self.contentView.width, 0, self.contentView.width, self.contentView.height);
+    [self.contentView addSubview:childVc.view];
+}
+
 - (void)showChildVCViewsAtIndex:(NSInteger)index
 {
     if (self.childViewControllers.count == 0 || index < 0 || index > self.childViewControllers.count - 1) return;
     
-    UIViewController *vc = self.childViewControllers[index];
-    
-    vc.view.frame = CGRectMake(index * self.contentView.width, 0, self.contentView.width, self.contentView.height);
-    [self.contentView addSubview:vc.view];
+    [self addChildVcViewToIndex:index];
     
     // 滚动到对应位置
     [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
     
+    // 是否开启预加载功能
+    if (!self.prefetchingEnabled) return;
+    
+    // 添加左右视图
+    NSInteger leftIndex = index - 1;
+    NSInteger rightIndex = index + 1;
+    if (leftIndex >= 0) [self addChildVcViewToIndex:leftIndex];
+    if (rightIndex <= self.childViewControllers.count - 1) [self addChildVcViewToIndex:rightIndex];
+    // 移除视图
+    for (NSInteger i = 0; i < self.childViewControllers.count; i++) {
+        if (i == index) continue;
+        if (i == leftIndex) continue;
+        if (i == rightIndex) continue;
+        UIViewController *vc = self.childViewControllers[i];
+        [vc.view removeFromSuperview];
+    }
 }
 
 #pragma mark - Lazy

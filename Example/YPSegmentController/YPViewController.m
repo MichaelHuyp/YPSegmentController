@@ -51,14 +51,17 @@
         config.itemTitleSelectColor = [UIColor redColor];
     }];
     
+    // 开启预加载功能
+    self.segmentController.prefetchingEnabled = YES;
+    
     // 是否开启渐变色
-    self.segmentController.segmentBar.enableTitleGradient = YES;
+    self.segmentController.segmentBar.enableTitleGradient = NO;
     
     // 联动模式是否开启进度实时更新
-    self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeProgress;
+    self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeNormal;
     
     // 选项条的滚动模式是否为居中模式
-    self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeCenter;
+    self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeNormal;
     
     UIViewController *vc1 = [UIViewController new];
     vc1.title = @"腾讯";
@@ -100,7 +103,6 @@
     vc10.title = @"美团-大众点评";
     vc10.view.backgroundColor = YPRandomColor_RGB;
     
-    
     // 配置子控制器
     [self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
 }
@@ -108,7 +110,6 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    
     
     [self.segmentController updateWithConfig:^(YPSegmentControllerConfig *config) {
         config.segmentBarTop = self.navigationController.navigationBar.bottom;

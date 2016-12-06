@@ -15,6 +15,9 @@
 /** 选项条 */
 @property (nonatomic, weak) YPSegmentBar *segmentBar;
 
+/** 是否开启预加载功能 */
+@property (nonatomic, assign) BOOL prefetchingEnabled;
+
 /** 
  *  设置数据源
  */

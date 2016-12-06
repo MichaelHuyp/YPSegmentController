@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "YPSegmentBarConfig.h"
 
+
 typedef NS_ENUM(NSInteger, YPSegmentBarScrollMode) {
     YPSegmentBarScrollModeNormal, // 默认滚动模式
     YPSegmentBarScrollModeCenter  // 中间滚动模式
@@ -22,6 +23,7 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 @protocol YPSegmentBarDelegate;
 
 @interface YPSegmentBar : UIView
+
 
 /** 数据源 */
 @property (nonatomic, copy) NSArray <NSString *> *items;
@@ -56,3 +58,5 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 - (void)segmentBar:(YPSegmentBar *)segmentBar didSelectedIndex:(NSInteger)toIndex fromIndex:(NSInteger)fromIndex;
 
 @end
+
+UIKIT_EXTERN NSNotificationName const YPSegmentBarSelectionDidChangeNotification;
