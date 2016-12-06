@@ -45,10 +45,6 @@
     self.segmentController.view.frame = self.view.bounds;
     [self.view addSubview:self.segmentController.view];
     
-    [self.segmentController updateWithConfig:^(YPSegmentControllerConfig *config) {
-        config.segmentBarTop = 64;
-        config.segmentBarHeight = 44;
-    }];
     
     [self.segmentController.segmentBar updateWithConfig:^(YPSegmentBarConfig *config) {
         config.itemTitleNormalColor = [UIColor blueColor];
@@ -102,6 +98,16 @@
     
     [self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
     
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    
+    
+    [self.segmentController updateWithConfig:^(YPSegmentControllerConfig *config) {
+        config.segmentBarTop = self.navigationController.navigationBar.bottom;
+    }];
 }
 
 

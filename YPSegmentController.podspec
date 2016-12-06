@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-平平淡淡的选项卡控制器的封装 []~(￣▽￣)~*
+平平淡淡的选项卡控制器的封装................
                        DESC
 
   s.homepage         = 'https://github.com/MichaelHuyp/YPSegmentController'
