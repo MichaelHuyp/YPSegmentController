@@ -45,7 +45,7 @@
     self.segmentController.view.frame = self.view.bounds;
     [self.view addSubview:self.segmentController.view];
     
-    self.navigationItem.titleView = self.segmentController.segmentBar;
+//    self.navigationItem.titleView = self.segmentController.segmentBar;
     
     // 更新选项条的各项配置
     [self.segmentController.segmentBar updateWithConfig:^(YPSegmentBarConfig *config) {
@@ -114,6 +114,9 @@
 {
     [super viewWillLayoutSubviews];
     
+    [self.segmentController updateWithConfig:^(YPSegmentControllerConfig *config) {
+        config.segmentBarTop = 64;
+    }];
 }
 
 
