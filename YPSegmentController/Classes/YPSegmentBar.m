@@ -69,6 +69,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     // 指示器
     self.indicatorView.backgroundColor = self.config.indicatorColor;
+    self.indicatorView.hidden = self.config.indicatorHidden;
     
     // 重新保存选中与普通状态下的RGB
     [_config.itemTitleNormalColor getRGBComponents:_normalColors];
@@ -137,8 +138,8 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     self.indicatorView.top = self.height - self.indicatorView.height;
     [self.contentView bringSubviewToFront:self.indicatorView];
     
-    
 }
+
 
 #pragma mark - Setter
 
@@ -230,6 +231,20 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     UIButton *btn = self.itemBtns[selectIndex];
     
     [self btnClick:btn];
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    CGRect newFrame = frame;
+    
+    if ([self.superview isKindOfClass:[UINavigationBar class]]) {
+        newFrame.origin.x = 0;
+        newFrame.origin.y = 0;
+        newFrame.size.width = [UIScreen mainScreen].bounds.size.width;
+    }
+    
+    [super setFrame:newFrame];
+
 }
 
 #pragma mark - Action
@@ -334,6 +349,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
         CGFloat indicatorH = self.config.indicatorHeight;
         UIView *indicatorView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height - indicatorH, 0, indicatorH)];
         indicatorView.backgroundColor = self.config.indicatorColor;
+        indicatorView.hidden = self.config.indicatorHidden;
         [self.contentView addSubview:indicatorView];
         _indicatorView = indicatorView;
     }

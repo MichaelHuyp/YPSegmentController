@@ -35,5 +35,8 @@
 /** 文字间的最小间距 */
 @property (nonatomic, assign) CGFloat minMargin;
 
+/** 指示器是否隐藏 */
+@property (nonatomic, assign) BOOL indicatorHidden;
+
 
 @end

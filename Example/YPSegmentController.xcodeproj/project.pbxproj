@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		068CC1473B6DB09422E4FB8C /* Pods_YPSegmentController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E255BC8546577D4FFF3E510E /* Pods_YPSegmentController_Tests.framework */; };
+		5F097D801DFE88FB003BECBF /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F097D7F1DFE88FB003BECBF /* Reveal.framework */; };
 		5F53EB791DF56A56001C164D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F53EB781DF56A56001C164D /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 		1A01ACF50E45445BF5BE2F26 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		23B165225D1D16350082E0CF /* Pods-YPSegmentController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YPSegmentController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-YPSegmentController_Example/Pods-YPSegmentController_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4F4F9C144D46DBC35E85D46B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5F097D7F1DFE88FB003BECBF /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		5F53EB781DF56A56001C164D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* YPSegmentController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YPSegmentController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,6 +78,7 @@
 			files = (
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
+				5F097D801DFE88FB003BECBF /* Reveal.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				FB3992C4E4CCB4CF6CA5A009 /* Pods_YPSegmentController_Example.framework in Frameworks */,
 			);
@@ -109,6 +112,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				5F097D7F1DFE88FB003BECBF /* Reveal.framework */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for YPSegmentController */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -521,10 +525,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = QFPBDT5J32;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YPSegmentController/YPSegmentController-Prefix.pch";
 				INFOPLIST_FILE = "YPSegmentController/YPSegmentController-Info.plist";
 				MODULE_NAME = ExampleApp;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"YPSegmentController\"",
+					"-ObjC",
+					"-lz",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -538,10 +553,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = QFPBDT5J32;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "YPSegmentController/YPSegmentController-Prefix.pch";
 				INFOPLIST_FILE = "YPSegmentController/YPSegmentController-Info.plist";
 				MODULE_NAME = ExampleApp;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"YPSegmentController\"",
+					"-ObjC",
+					"-lz",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

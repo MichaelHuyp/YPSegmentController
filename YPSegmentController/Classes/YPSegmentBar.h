@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 /** 是否开启标题颜色渐变 默认为No */
 @property (nonatomic, assign) BOOL enableTitleGradient;
 
+
 /**
  *  配置Bar的各种参数
  */

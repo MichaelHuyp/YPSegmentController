@@ -20,6 +20,7 @@
     config.indicatorColor = [UIColor redColor];
     config.indicatorHeight = 2;
     config.minMargin = 30;
+    config.indicatorHidden = NO;
     return config;
 }
 

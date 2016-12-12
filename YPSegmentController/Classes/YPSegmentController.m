@@ -64,12 +64,19 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    
-    self.segmentBar.frame = CGRectMake(0, self.config.segmentBarTop, self.config.segmentBarWidth, self.config.segmentBarHeight);
-    CGFloat contentViewY = self.segmentBar.top + self.segmentBar.height;
-    self.contentView.frame = CGRectMake(self.segmentBar.left, contentViewY, self.segmentBar.width, self.view.height - self.segmentBar.bottom);
-    self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.segmentBar.width, 0);
+
+    if ([self.segmentBar.superview isKindOfClass:[UINavigationBar class]]) {
+        self.segmentBar.frame = CGRectMake(0, 0, self.navigationController.navigationBar.width, self.navigationController.navigationBar.height);
+        self.contentView.frame = CGRectMake(self.navigationController.navigationBar.left, self.navigationController.navigationBar.bottom, self.view.width, self.view.height - self.navigationController.navigationBar.bottom);
+    } else {
+        self.segmentBar.frame = CGRectMake(0, self.config.segmentBarTop, self.config.segmentBarWidth, self.config.segmentBarHeight);
+        self.contentView.frame = CGRectMake(self.segmentBar.left, self.segmentBar.bottom, self.view.width, self.view.height - self.segmentBar.bottom);
+    }
+
+    self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
     self.segmentBar.selectIndex = self.segmentBar.selectIndex;
+    
+
 }
 
 #pragma mark - Private
