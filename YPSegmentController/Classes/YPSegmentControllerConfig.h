@@ -18,5 +18,8 @@
 /** Bar的高度 */
 @property (nonatomic, assign) CGFloat segmentBarHeight;
 
+/** Bar的宽度 */
+@property (nonatomic, assign) CGFloat segmentBarWidth;
+
 
 @end

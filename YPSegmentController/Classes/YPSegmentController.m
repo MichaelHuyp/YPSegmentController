@@ -65,7 +65,7 @@
 {
     [super viewWillLayoutSubviews];
     
-    self.segmentBar.frame = CGRectMake(0, self.config.segmentBarTop, self.view.width, self.config.segmentBarHeight);
+    self.segmentBar.frame = CGRectMake(0, self.config.segmentBarTop, self.config.segmentBarWidth, self.config.segmentBarHeight);
     CGFloat contentViewY = self.segmentBar.top + self.segmentBar.height;
     self.contentView.frame = CGRectMake(self.segmentBar.left, contentViewY, self.segmentBar.width, self.view.height - self.segmentBar.bottom);
     self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.segmentBar.width, 0);

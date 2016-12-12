@@ -18,6 +18,8 @@
     
     config.segmentBarHeight = 44;
     
+    config.segmentBarWidth = [UIScreen mainScreen].bounds.size.width;
+    
     return config;
 }
 
