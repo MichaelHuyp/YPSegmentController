@@ -38,5 +38,8 @@
 /** 指示器是否隐藏 */
 @property (nonatomic, assign) BOOL indicatorHidden;
 
+/** 在导航条上的宽度 */
+@property (nonatomic, assign) CGFloat onNaviBarWidth;
+
 
 @end

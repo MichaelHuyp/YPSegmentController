@@ -21,6 +21,7 @@
     config.indicatorHeight = 2;
     config.minMargin = 30;
     config.indicatorHidden = NO;
+    config.onNaviBarWidth = [UIScreen mainScreen].bounds.size.width;
     return config;
 }
 

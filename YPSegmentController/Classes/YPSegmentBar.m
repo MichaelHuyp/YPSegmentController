@@ -61,11 +61,18 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     // 按照当前的配置进行刷新
     self.backgroundColor = self.config.backgroundColor;
     
+    if ([self.superview isKindOfClass:[UINavigationBar class]]) {
+        self.centerX = self.superview.width * 0.5;
+        self.top = 0;
+        self.width = self.config.onNaviBarWidth;
+    }
+    
     for (UIButton *btn in self.itemBtns) {
         [btn setTitleColor:self.config.itemTitleNormalColor forState:UIControlStateNormal];
         [btn setTitleColor:self.config.itemTitleSelectColor forState:UIControlStateSelected];
         btn.titleLabel.font = self.config.itemFont;
     }
+    
     
     // 指示器
     self.indicatorView.backgroundColor = self.config.indicatorColor;
@@ -77,6 +84,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     _deltaR = _normalColors[0] - _selectedColors[0];
     _deltaG = _normalColors[1] - _selectedColors[1];
     _deltaB = _normalColors[2] - _selectedColors[2];
+    
+    
+    
     
     // 刷新布局
     [self setNeedsLayout];
@@ -238,9 +248,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     CGRect newFrame = frame;
     
     if ([self.superview isKindOfClass:[UINavigationBar class]]) {
-        newFrame.origin.x = 0;
         newFrame.origin.y = 0;
-        newFrame.size.width = [UIScreen mainScreen].bounds.size.width;
+        newFrame.size.width = self.config.onNaviBarWidth;
+        newFrame.origin.x = self.superview.width * 0.5 - newFrame.size.width * 0.5;
     }
     
     [super setFrame:newFrame];

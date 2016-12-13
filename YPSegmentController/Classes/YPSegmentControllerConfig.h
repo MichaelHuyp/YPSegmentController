@@ -15,6 +15,9 @@
 /** Bar距离顶部的高度 */
 @property (nonatomic, assign) CGFloat segmentBarTop;
 
+/** Bar的x坐标 */
+@property (nonatomic, assign) CGFloat segmentBarLeft;
+
 /** Bar的高度 */
 @property (nonatomic, assign) CGFloat segmentBarHeight;
 
