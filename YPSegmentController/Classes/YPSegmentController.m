@@ -12,6 +12,7 @@
 
 @interface YPSegmentController () <YPSegmentBarDelegate, UIScrollViewDelegate>
 
+
 /** 内容视图 */
 @property (nonatomic, weak) UIScrollView *contentView;
 
@@ -34,7 +35,6 @@
     }
     
     self.segmentBar.items = titleItems;
-    self.contentView.backgroundColor = [UIColor grayColor];
     
     self.contentView.contentSize = CGSizeMake(items.count * self.view.width, 0);
 }
@@ -76,7 +76,9 @@
     self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
     self.segmentBar.selectIndex = self.segmentBar.selectIndex;
     
-
+    [self.view sendSubviewToBack:self.backgroundView];
+    self.backgroundView.frame = self.contentView.frame;
+    
 }
 
 #pragma mark - Private
@@ -84,6 +86,7 @@
 {
     UIViewController *childVc = self.childViewControllers[index];
     childVc.view.frame = CGRectMake(index * self.contentView.width, 0, self.contentView.width, self.contentView.height);
+    
     [self.contentView addSubview:childVc.view];
 }
 
@@ -137,6 +140,7 @@
         contentView.showsHorizontalScrollIndicator = NO;
         contentView.scrollsToTop = NO;
         contentView.bounces = NO;
+        contentView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:contentView];
         _contentView = contentView;
     }
@@ -149,6 +153,18 @@
         _config = [YPSegmentControllerConfig defaultConfig];
     }
     return _config;
+}
+
+- (UIView *)backgroundView
+{
+    if (!_backgroundView) {
+        UIView *backgroundView = [[UIView alloc] init];
+        [self.view addSubview:backgroundView];
+        [self.view sendSubviewToBack:backgroundView];
+        backgroundView.backgroundColor = [UIColor clearColor];
+        _backgroundView = backgroundView;
+    }
+    return _backgroundView;
 }
 
 #pragma mark - YPSegmentBarDelegate
@@ -169,10 +185,12 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!scrollView.dragging || (self.segmentBar.linkMode == YPSegmentBarScrollModeNormal && !self.segmentBar.enableTitleGradient)) return; 
+    if (!scrollView.dragging) return;
     
     // 拖拽比例
-    CGFloat bili = scrollView.contentOffset.x / self.contentView.width;
+    CGFloat bili = scrollView.contentOffset.x / scrollView.width;
+    
+    if (self.segmentBar.linkMode == YPSegmentBarScrollModeNormal && !self.segmentBar.enableTitleGradient) return;
     
     self.segmentBar.indicatorProgress = bili;
 }

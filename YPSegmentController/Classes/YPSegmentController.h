@@ -18,6 +18,9 @@
 /** 是否开启预加载功能 */
 @property (nonatomic, assign) BOOL prefetchingEnabled;
 
+/** 背景View */
+@property (nonatomic, weak) UIView *backgroundView;
+
 /** 
  *  设置数据源
  */

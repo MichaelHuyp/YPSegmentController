@@ -1,5 +1,5 @@
 PODS:
-  - YPSegmentController (1.2.2)
+  - YPSegmentController (1.2.3)
 
 DEPENDENCIES:
   - YPSegmentController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YPSegmentController: ebd542e34eafeb569280e5976e8a1c9383ddc5a6
+  YPSegmentController: 549d893a91ee89ff17285e01a14b5e21def67a83
 
 PODFILE CHECKSUM: a8fe909cb727cc125bc34a9e617af4993c01da4f
 

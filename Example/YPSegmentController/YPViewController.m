@@ -54,7 +54,7 @@
     }];
     
     // 开启预加载功能
-    self.segmentController.prefetchingEnabled = YES;
+//    self.segmentController.prefetchingEnabled = YES;
     
     // 是否开启渐变色
     self.segmentController.segmentBar.enableTitleGradient = NO;
