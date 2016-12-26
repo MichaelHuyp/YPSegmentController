@@ -8,10 +8,27 @@
 
 #import "YPSegmentController.h"
 #import "UIView+YPSegment.h"
+#import <objc/message.h>
 
+#ifndef YPSYNTH_DYNAMIC_PROPERTY_OBJECT
+#define YPSYNTH_DYNAMIC_PROPERTY_OBJECT(_getter_, _setter_, _association_, _type_) \
+- (void)_setter_ : (_type_)object { \
+[self willChangeValueForKey:@#_getter_]; \
+objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_ ## _association_); \
+[self didChangeValueForKey:@#_getter_]; \
+} \
+- (_type_)_getter_ { \
+return objc_getAssociatedObject(self, @selector(_setter_:)); \
+}
+#endif
+
+@interface UIViewController ()
+
+@property (nonatomic, strong, readwrite) YPSegmentController *segmentController;
+
+@end
 
 @interface YPSegmentController () <YPSegmentBarDelegate, UIScrollViewDelegate>
-
 
 /** 内容视图 */
 @property (nonatomic, weak) UIScrollView *contentView;
@@ -30,6 +47,7 @@
     
     NSMutableArray *titleItems = [NSMutableArray array];
     for (UIViewController *vc in items) {
+        vc.segmentController = self;
         [self addChildViewController:vc];
         [titleItems addObject:vc.title];
     }
@@ -197,7 +215,27 @@
 
 @end
 
+@implementation UIViewController (YPSegmentControllerItem)
 
+static const char YPSegmentControllerKey = '\0';
+
+- (void)setSegmentController:(YPSegmentController *)segmentController
+{
+    [self willChangeValueForKey:@"segmentController"];
+    objc_setAssociatedObject(self, &YPSegmentControllerKey, segmentController, OBJC_ASSOCIATION_RETAIN);
+    [self didChangeValueForKey:@"segmentController"];
+}
+
+- (YPSegmentController *)segmentController
+{
+    id obj = objc_getAssociatedObject(self, &YPSegmentControllerKey);
+    while (!obj) {
+        obj = objc_getAssociatedObject(self.parentViewController, &YPSegmentControllerKey);
+    }
+    return obj;
+}
+
+@end
 
 
 

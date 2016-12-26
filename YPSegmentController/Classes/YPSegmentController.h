@@ -10,6 +10,8 @@
 #import "YPSegmentBar.h"
 #import "YPSegmentControllerConfig.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface YPSegmentController : UIViewController
 
 /** 选项条 */
@@ -33,3 +35,12 @@
 
 
 @end
+
+@interface UIViewController (YPSegmentControllerItem)
+
+@property(nullable, nonatomic,readonly,strong) YPSegmentController *segmentController;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
