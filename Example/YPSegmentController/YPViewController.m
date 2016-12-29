@@ -57,10 +57,11 @@
 //    self.segmentController.prefetchingEnabled = YES;
     
     // 是否开启渐变色
-    self.segmentController.segmentBar.enableTitleGradient = NO;
+    self.segmentController.segmentBar.enableTitleColorGradient = YES;
+    self.segmentController.segmentBar.enableTitleSizeGradient = YES;
     
     // 联动模式是否开启进度实时更新
-    self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeNormal;
+    self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeProgress;
     
     // 选项条的滚动模式是否为居中模式
     self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeNormal;
