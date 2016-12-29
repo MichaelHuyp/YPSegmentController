@@ -7,161 +7,131 @@
 
 ## Example
 
-<img src="https://lh3.googleusercontent.com/kiRHV5ygynMxK1vN3ncNKq_CU4tNLWwJtKxsV0T8NdMv7HMrn0IWLLmpsULD1-qH214R_nhH8AA7uhciid4YZ_MEpDcYfaNPQPRzYP1XIZRZnCKs8Si6768Z7471zi-AW-dZpflYL9-gP01ocgKQEKQl32ueVs2DocNgd0ea3jLihq_k6kK4SoJrJz5JztYtp69H0_DVZmu7WTFfCOt0y-WZXA_I62fKf5WRdYRYxL03z_-gcY0SqZD7AXDi6dG6naV18tM7RmftX0sQzf-1TCpzB2VbGiY1tNrNs_LaqUPn032of9JGmFLuotKnJRy-0-Icb-63-1qyuFHCsNncdWbF_cj--XE81W0l0mbUee5VMK1t131WC702Z57l-xw2ezhHLt0LPzFdIPHEXK5YR8kcyI6F34aPc17W7lFq3rJF45_q0eft5ghDtTePgOK59PcgfcSi61SiS2t9rUeRgzfVuVCfWwZdA0dGzdyXKHz9yS962ilpf2r28454W-CG6DxhAI5PFijz8V4HiyexkpCk-95tOfrkz9qYZ3M46EKwtkL8xb_NNUV-9jv1VGRGJYlNtq1kzILf7UZDnyU-0kDlEQEIeddZI-5WAEixsLJkVr7zNW0=w1066-h680-no">
+![demo1](https://photos.google.com/album/AF1QipPObbcgBluqaJE36Ff9leHRkU28-zF9Er_A_ccO/photo/AF1QipPXbnu6tHLr-5s5FDbVQpvOQrOX5_J4TLknRpFw)
 
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Usage
-
-```` objc
-self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeNormal
-````
-![](https://lh3.googleusercontent.com/-7-Aky6X_pqQ/WEYwYjG7YZI/AAAAAAAAACM/VUSu3mvdkxMq-XlSVltLDofbPSpfcKCugCLcB/w238-h437-no/ypsegmentcontrollerdemo2.gif)
+目前完成功能:
+1.滑动模式 Normal
+2.滑动模式 Center
+3.颜色渐变
+4.文字大小渐变
+5.滑动进度模式Progress
 
 ### 使用说明书
-````objc
-//
-//  YPViewController.m
-//  YPSegmentController
-//
-//  Created by MichaelHuyp on 12/05/2016.
-//  Copyright (c) 2016 MichaelHuyp. All rights reserved.
-//
 
-#import "YPViewController.h"
+#### 最简单的集成方式
+- 1.首先引入`YPSegmentController.h`头文件
+- 2.将segmentController作为weak属性
+- 3.将segmentController作为当前控制器的子控制器
+- 4.将segmentController的view加到当前控制器的子视图
+- 5.创建若干子控制器,调用-[YPSegmentController setUpWithItems:]方法添加.
+
+````objc
+#import "ViewController.h"
 #import "YPSegmentController.h"
 #import "UIView+YPSegment.h"
+#import "YPMeituanDemoViewController.h"
 
 #define YPColor_RGB(r, g, b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]
 #define YPRandomColor_RGB YPColor_RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
-@interface YPViewController ()
+@interface ViewController ()
 
 @property (nonatomic, weak) YPSegmentController *segmentController;
 
 @end
 
-@implementation YPViewController
+@implementation ViewController
 
 #pragma mark - Lazy
 
 - (YPSegmentController *)segmentController
 {
-if (!_segmentController) {
-YPSegmentController *vc = [YPSegmentController new];
-[self addChildViewController:vc];
-_segmentController = vc;
-}
-return _segmentController;
-}
-
-#pragma mark - Life Cycle
-- (void)viewDidLoad
-{
-[super viewDidLoad];
-
-self.title = @"2016互联网十强企业";
-
-self.automaticallyAdjustsScrollViewInsets = NO;
-
-self.segmentController.view.frame = self.view.bounds;
-[self.view addSubview:self.segmentController.view];
-
-// 更新选项条的各项配置
-[self.segmentController.segmentBar updateWithConfig:^(YPSegmentBarConfig *config) {
-config.itemTitleNormalColor = [UIColor blueColor];
-config.itemTitleSelectColor = [UIColor redColor];
-}];
-
-// 开启预加载功能
-self.segmentController.prefetchingEnabled = YES;
-
-// 是否开启渐变色
-self.segmentController.segmentBar.enableTitleGradient = NO;
-
-// 联动模式是否开启进度实时更新
-self.segmentController.segmentBar.linkMode = YPSegmentBarLinkModeNormal;
-
-// 选项条的滚动模式是否为居中模式
-self.segmentController.segmentBar.scrollMode = YPSegmentBarScrollModeNormal;
-
-UIViewController *vc1 = [UIViewController new];
-vc1.title = @"腾讯";
-vc1.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc2 = [UIViewController new];
-vc2.title = @"阿里巴巴";
-vc2.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc3 = [UIViewController new];
-vc3.title = @"蚂蚁金服";
-vc3.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc4 = [UIViewController new];
-vc4.title = @"百度";
-vc4.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc5 = [UIViewController new];
-vc5.title = @"京东";
-vc5.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc6 = [UIViewController new];
-vc6.title = @"网易";
-vc6.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc7 = [UIViewController new];
-vc7.title = @"小米科技";
-vc7.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc8 = [UIViewController new];
-vc8.title = @"滴滴出行";
-vc8.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc9 = [UIViewController new];
-vc9.title = @"陆金所";
-vc9.view.backgroundColor = YPRandomColor_RGB;
-
-UIViewController *vc10 = [UIViewController new];
-vc10.title = @"美团-大众点评";
-vc10.view.backgroundColor = YPRandomColor_RGB;
-
-// 配置子控制器
-[self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
+    if (!_segmentController) {
+        YPSegmentController *vc = [YPSegmentController new];
+        [self addChildViewController:vc];
+        _segmentController = vc;
+    }
+    return _segmentController;
 }
 
-- (void)viewWillLayoutSubviews
-{
-[super viewWillLayoutSubviews];
+#pragma mark - Cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"2016互联网十强企业";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    self.segmentController.view.frame = self.view.bounds;
+    [self.view addSubview:self.segmentController.view];
+    
+    UIViewController *vc1 = [UIViewController new];
+    vc1.title = @"腾讯";
+    vc1.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc2 = [UIViewController new];
+    vc2.title = @"阿里巴巴";
+    vc2.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc3 = [UIViewController new];
+    vc3.title = @"蚂蚁金服";
+    vc3.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc4 = [UIViewController new];
+    vc4.title = @"百度";
+    vc4.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc5 = [UIViewController new];
+    vc5.title = @"京东";
+    vc5.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc6 = [UIViewController new];
+    vc6.title = @"网易";
+    vc6.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc7 = [UIViewController new];
+    vc7.title = @"小米科技";
+    vc7.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc8 = [UIViewController new];
+    vc8.title = @"滴滴出行";
+    vc8.view.backgroundColor = YPRandomColor_RGB;
+    UIViewController *vc9 = [UIViewController new];
+    vc9.title = @"陆金所";
+    vc9.view.backgroundColor = YPRandomColor_RGB;
+    YPMeituanDemoViewController *vc10 = [YPMeituanDemoViewController new];
+    vc10.title = @"美团-大众点评";
+    
+    
+    [self.segmentController setUpWithItems:@[vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9,vc10]];
 
-[self.segmentController updateWithConfig:^(YPSegmentControllerConfig *config) {
-config.segmentBarTop = self.navigationController.navigationBar.bottom;
-}];
 }
-
-
 
 @end
 
+
+````
+
+
+
+````objc
+@property (nonatomic, weak) YPSegmentController *segmentController;
 ````
 
 ### YPSegmentBar.h
 
 ````objc
 
+#import <UIKit/UIKit.h>
+#import "YPSegmentBarConfig.h"
+
+
 typedef NS_ENUM(NSInteger, YPSegmentBarScrollMode) {
-    YPSegmentBarScrollModeNormal, // 默认滚动模式
-    YPSegmentBarScrollModeCenter  // 中间滚动模式
+    YPSegmentBarScrollModeNormal, // 默认滚动模式
+    YPSegmentBarScrollModeCenter  // 中间滚动模式
 };
 
 typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
-    YPSegmentBarLinkModeNormal, // 默认联动模式
-    YPSegmentBarLinkModeProgress  // 根据进度的联动模式
+    YPSegmentBarLinkModeNormal, // 默认联动模式
+    YPSegmentBarLinkModeProgress  // 根据进度的联动模式
 };
 
 @protocol YPSegmentBarDelegate;
 
 @interface YPSegmentBar : UIView
+
 
 /** 数据源 */
 @property (nonatomic, copy) NSArray <NSString *> *items;
@@ -182,11 +152,14 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 @property (nonatomic, assign) CGFloat indicatorProgress;
 
 /** 是否开启标题颜色渐变 默认为No */
-@property (nonatomic, assign) BOOL enableTitleGradient;
+@property (nonatomic, assign) BOOL enableTitleColorGradient;
+
+/** 是否开启标题大小渐变 默认为No */
+@property (nonatomic, assign) BOOL enableTitleSizeGradient;
 
 /**
- *  配置Bar的各种参数
- */
+ *  配置Bar的各种参数
+ */
 - (void)updateWithConfig:(void(^)(YPSegmentBarConfig *config))block;
 
 @end
@@ -197,28 +170,51 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 
 @end
 
+UIKIT_EXTERN NSString * const YPSegmentBarSelectionDidChangeNotification;
+
 ````
 
 ### YPSegmentController.h
 
 ````objc
 
+#import <UIKit/UIKit.h>
+#import "YPSegmentBar.h"
+#import "YPSegmentControllerConfig.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface YPSegmentController : UIViewController
 
 /** 选项条 */
 @property (nonatomic, weak) YPSegmentBar *segmentBar;
 
-/** 
- *  设置数据源
- */
+/** 是否开启预加载功能 */
+@property (nonatomic, assign) BOOL prefetchingEnabled;
+
+/** 背景View */
+@property (nonatomic, weak) UIView *backgroundView;
+
+/** 
+ *  设置数据源
+ */
 - (void)setUpWithItems:(NSArray <UIViewController *>*)items;
 
 /**
- *  修改基本配置
- */
+ *  修改基本配置
+ */
 - (void)updateWithConfig:(void(^)(YPSegmentControllerConfig *config))block;
 
+
 @end
+
+@interface UIViewController (YPSegmentControllerItem)
+
+@property(nullable, nonatomic,readonly,strong) YPSegmentController *segmentController;
+
+@end
+
+NS_ASSUME_NONNULL_END
 
 ````
 
