@@ -15,7 +15,7 @@
     YPSegmentBarConfig *config = [[YPSegmentBarConfig alloc] init];
     config.backgroundColor = [UIColor clearColor];
     config.itemFont = [UIFont systemFontOfSize:14];
-    config.fontChangeDelta = 1.25;
+    config.fontChangeDelta = 1.15;
     config.itemTitleNormalColor = [UIColor blackColor];
     config.itemTitleSelectColor = [UIColor redColor];
     config.indicatorColor = [UIColor redColor];

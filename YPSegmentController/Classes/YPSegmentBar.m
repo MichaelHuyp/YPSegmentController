@@ -9,13 +9,16 @@
 #import "YPSegmentBar.h"
 #import "UIView+YPSegment.h"
 #import "UIColor+YPSegment.h"
+#import "YPSegmentBarButton.h"
+
+#define kWidthDelta 0
 
 NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSelectionDidChangeNotification";
 
 @interface YPSegmentBar ()
 {
     // 记录最后一次点击的按钮
-    UIButton *_lastBtn;
+    YPSegmentBarButton *_lastBtn;
     
     // 记录最合适的间距
     CGFloat _caculateMargin;
@@ -40,7 +43,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
 @property (nonatomic, weak) UIScrollView *contentView;
 
 /** 记录所有的按钮 */
-@property (nonatomic, strong) NSMutableArray <UIButton *> *itemBtns;
+@property (nonatomic, strong) NSMutableArray <YPSegmentBarButton *> *itemBtns;
 
 /** 属性配置 */
 @property (nonatomic, strong) YPSegmentBarConfig *config;
@@ -67,7 +70,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
         self.width = self.config.onNaviBarWidth;
     }
     
-    for (UIButton *btn in self.itemBtns) {
+    for (YPSegmentBarButton *btn in self.itemBtns) {
         [btn setTitleColor:self.config.itemTitleNormalColor forState:UIControlStateNormal];
         [btn setTitleColor:self.config.itemTitleSelectColor forState:UIControlStateSelected];
         btn.titleLabel.font = self.config.itemFont;
@@ -116,9 +119,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     // 计算所有按钮的宽度
     CGFloat totoalBtnWidth = 0;
-    for (UIButton *btn in self.itemBtns) {
+    for (YPSegmentBarButton *btn in self.itemBtns) {
         [btn sizeToFit];
-        totoalBtnWidth += btn.width;
+        totoalBtnWidth += btn.width + kWidthDelta;
     }
     
     // 计算最适合的间距
@@ -128,11 +131,12 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     // 按钮布局
     CGFloat lastX = caculateMargin;
-    for (UIButton *btn in self.itemBtns) {
+    for (YPSegmentBarButton *btn in self.itemBtns) {
         [btn sizeToFit];
         btn.top = 0;
         btn.left = lastX;
         btn.height = self.height;
+        btn.width = btn.width + kWidthDelta;
         lastX += btn.width + caculateMargin;
     }
     
@@ -141,7 +145,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     if ((self.itemBtns.count == 0)) return;
     
-    UIButton *btn = self.itemBtns[self.selectIndex];
+    YPSegmentBarButton *btn = self.itemBtns[self.selectIndex];
     self.indicatorView.width = btn.width;
     self.indicatorView.centerX = btn.centerX;
     self.indicatorView.height = self.config.indicatorHeight;
@@ -163,9 +167,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     _lastBtn = nil;
     _selectIndex = 0;
     
-    // 根据所有的选项数据源,创建UIButton,添加到内容视图上
+    // 根据所有的选项数据源,创建YPSegmentBarButton,添加到内容视图上
     for (NSString *item in items) {
-        UIButton *btn = [[UIButton alloc] init];
+        YPSegmentBarButton *btn = [[YPSegmentBarButton alloc] init];
         btn.tag = self.itemBtns.count;
         btn.titleLabel.font = self.config.itemFont;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
@@ -188,9 +192,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     // 首先拿到拖动过程中的左右按钮
     NSInteger currentIndex = (NSInteger)indicatorProgress;
     // 左按钮
-    UIButton *currentBtn = self.itemBtns[currentIndex];
+    YPSegmentBarButton *currentBtn = self.itemBtns[currentIndex];
     // 右按钮
-    UIButton *nextBtn = nil;
+    YPSegmentBarButton *nextBtn = nil;
     if (!(currentIndex + 1 > self.itemBtns.count - 1)) {
         nextBtn = self.itemBtns[currentIndex + 1];
     }
@@ -247,7 +251,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     _selectIndex = selectIndex;
     
-    UIButton *btn = self.itemBtns[selectIndex];
+    YPSegmentBarButton *btn = self.itemBtns[selectIndex];
     
     [self btnClick:btn];
 }
@@ -267,7 +271,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
 }
 
 #pragma mark - Action
-- (void)btnClick:(UIButton *)btn
+- (void)btnClick:(YPSegmentBarButton *)btn
 {
     // 触发代理
     if ([self.delegate respondsToSelector:@selector(segmentBar:didSelectedIndex:fromIndex:)]) {
@@ -292,9 +296,6 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
             }];
         }
     }
-    
-
-
     
     _selectIndex = btn.tag;
     
@@ -338,16 +339,14 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
         [self.contentView setContentOffset:CGPointMake(scrollX, 0) animated:YES];
     }
     
-    // 手动刷新布局
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
+
 }
 
 #pragma mark - Lazy
 - (UIScrollView *)contentView
 {
     if (!_contentView) {
-        UIScrollView *contentView = [[UIScrollView alloc] init];
+        UIScrollView *contentView = [[UIScrollView alloc] initWithFrame:self.bounds];
         contentView.showsHorizontalScrollIndicator = NO;
         contentView.showsVerticalScrollIndicator = NO;
         contentView.scrollsToTop = NO;
@@ -357,7 +356,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     return _contentView;
 }
 
-- (NSMutableArray<UIButton *> *)itemBtns
+- (NSMutableArray<YPSegmentBarButton *> *)itemBtns
 {
     if (!_itemBtns) {
         _itemBtns = [NSMutableArray array];

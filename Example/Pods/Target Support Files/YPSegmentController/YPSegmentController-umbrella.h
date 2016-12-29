@@ -13,6 +13,7 @@
 #import "UIColor+YPSegment.h"
 #import "UIView+YPSegment.h"
 #import "YPSegmentBar.h"
+#import "YPSegmentBarButton.h"
 #import "YPSegmentBarConfig.h"
 #import "YPSegmentController.h"
 #import "YPSegmentControllerConfig.h"

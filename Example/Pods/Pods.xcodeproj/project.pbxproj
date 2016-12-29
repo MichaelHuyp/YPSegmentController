@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		370551192A0AF23E2EE7FCBC85A0A043 /* UIView+YPSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6438364B90D99626EBAD683C83D0CCEE /* UIView+YPSegment.m */; };
+		0316F4183E00D39C03C7F17FDE0A9943 /* YPSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 326328801A62E3A9F75F3CA606BCF256 /* YPSegmentController.m */; };
+		04207483E3A728E55F19030215CD488B /* YPSegmentControllerConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BEEFD187A3CD108CA9CE249567C22EB /* YPSegmentControllerConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		149A224129054ADE4E92E417024131F3 /* YPSegmentBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C27E5C2A8C8CF7358101053AD3DF709 /* YPSegmentBarButton.m */; };
+		237879372F4E1E8F2EB4D578C0C26B06 /* YPSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA1A0C4CB0EA11BBC2AA260CE034548 /* YPSegmentBar.m */; };
 		3D8AFB2C27F4494AD0193ACE2497AA16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		400B14D1C30746EC03A308F0903E053C /* YPSegmentController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA02844C4ADC9B4CF29F90E1D0522D35 /* YPSegmentController-dummy.m */; };
 		413F9CCFD90CD353264A237B64AF9F87 /* Pods-YPSegmentController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F11DF04561CF43A8F3C7D6985AFFDBE /* Pods-YPSegmentController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		52AC25EBFAE2522086E4FCF669CA85F2 /* YPSegmentBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 957B38EB95836A52D2BB3FF1A665462D /* YPSegmentBarConfig.m */; };
-		5D12CA0DDC49B9BF4EA29B9308323654 /* YPSegmentControllerConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 175863C66484C2E170C2C3956E0B17B3 /* YPSegmentControllerConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E3142299148D18C8AA289BDCDCBB6D0 /* YPSegmentController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DA02844C4ADC9B4CF29F90E1D0522D35 /* YPSegmentController-dummy.m */; };
-		687A68D28183B843E2D35E1EF537E6B5 /* YPSegmentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DF61FAA11BA9325A85CBA78492F335 /* YPSegmentController.m */; };
-		6E0943AFF1667BC5AA6A6063EA4FA8D3 /* YPSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0627369A1758A911A6A9B3B0A5D80F6B /* YPSegmentBar.m */; };
-		7E1FE35E0BD478D9A45A7F1133670B9B /* YPSegmentController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF99EDE4CE80631C6C9C09B9B0064C7 /* YPSegmentController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8309B8382C70DDE92CE16E81A707DEE4 /* UIView+YPSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 136ECC1C9C8396E2FC30985390BCF914 /* UIView+YPSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7354AA73330BF148BFCD51B481F3C740 /* YPSegmentBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2397091C10CA413C97A29A8ECEEF84C4 /* YPSegmentBarConfig.m */; };
+		737189924A907360AAA61BE8A8593612 /* UIColor+YPSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3889438F499F2581EFB2B5CE25A273A8 /* UIColor+YPSegment.m */; };
+		769AB72AAD1E308D0C73444EDA34DBAC /* YPSegmentBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E25A9A25FFD15B6B84F4A372A829A0 /* YPSegmentBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7C76517B41318EB9F344828AE67B98B1 /* YPSegmentBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 79445F0DAF30B4A20CF368992D8B9209 /* YPSegmentBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90C6D3F759F153013DE6BB9A34F5D03D /* Pods-YPSegmentController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 61C9262731CA5F52EEE7D5265E3D7EF6 /* Pods-YPSegmentController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9DBBBFE2BA1F55843B1F67C62257C5B7 /* YPSegmentController.h in Headers */ = {isa = PBXBuildFile; fileRef = 16DC0839CF3114CF63806069C35BBA13 /* YPSegmentController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B776F6523FD56F04A23D5E78655ACEF3 /* YPSegmentBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EEE9E92AFCFAAB2371DC766B75159CD /* YPSegmentBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5A7EF6F339DC62EB4A6F7B46C6B0408 /* YPSegmentBarConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = F0CC585128A57581ABDFB8F42F765624 /* YPSegmentBarConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC6712D920098D341958FEC05A6480F1 /* YPSegmentControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 9965404BE6FA3F6E5554BD5B1811BB89 /* YPSegmentControllerConfig.m */; };
 		C5A5EC53120086B05E6ADAA442218490 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		CA04BEF0143F07A0A98FB428A3EB2BD1 /* YPSegmentControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1FE61B1B4DD372F45E689B5C235838 /* YPSegmentControllerConfig.m */; };
+		CC4AD22EEAB934240608CD27A5288979 /* YPSegmentController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AFF99EDE4CE80631C6C9C09B9B0064C7 /* YPSegmentController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF81DFFD8892C5E43282CD6C46D979C1 /* Pods-YPSegmentController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 294F07A8D7916EBA842DD6A145415C86 /* Pods-YPSegmentController_Tests-dummy.m */; };
+		D5F2CCCA5550DBA7199CB6156E8DB178 /* UIView+YPSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AAA2EC2F258174D6ACB1B9094E34051 /* UIView+YPSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DB6CA95B9B2E1F775C7B2D1F46D4418E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		DEB74E38342E64B1F3B88C913B532925 /* UIColor+YPSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 579B156435577074FC13499602A38435 /* UIColor+YPSegment.m */; };
 		E05C42B36CFD15E6ED23517350C5EEED /* Pods-YPSegmentController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25012559A7D45D24D13424C95FF2B9E8 /* Pods-YPSegmentController_Example-dummy.m */; };
-		E121D7CC78FB367CC335C66863F8841C /* YPSegmentBarConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A1711B6DE3976BECE7C8840F15DCC89 /* YPSegmentBarConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E9DBDCAAAE8951F008090CE13075C081 /* UIColor+YPSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 705552254F88EA051567AA8538AAD2E5 /* UIColor+YPSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E6312797D415C01F926BC9048868F226 /* UIColor+YPSegment.h in Headers */ = {isa = PBXBuildFile; fileRef = 196742CE4979E29042D153BC6AFAD0AA /* UIColor+YPSegment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F78F08D076FB9049B77599A02E65D5D6 /* YPSegmentController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0410C69EDF2344C4FD0CF8B5DC1DC896 /* YPSegmentController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FFEC896FF2969C633D1D21B2CF2025B2 /* UIView+YPSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB4CBF99E3F08138D5E5A6D7BDA05CA /* UIView+YPSegment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,36 +43,37 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0627369A1758A911A6A9B3B0A5D80F6B /* YPSegmentBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentBar.m; sourceTree = "<group>"; };
-		136ECC1C9C8396E2FC30985390BCF914 /* UIView+YPSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+YPSegment.h"; sourceTree = "<group>"; };
-		16DC0839CF3114CF63806069C35BBA13 /* YPSegmentController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentController.h; sourceTree = "<group>"; };
-		175863C66484C2E170C2C3956E0B17B3 /* YPSegmentControllerConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentControllerConfig.h; sourceTree = "<group>"; };
+		0410C69EDF2344C4FD0CF8B5DC1DC896 /* YPSegmentController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentController.h; sourceTree = "<group>"; };
+		196742CE4979E29042D153BC6AFAD0AA /* UIColor+YPSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+YPSegment.h"; sourceTree = "<group>"; };
+		1AAA2EC2F258174D6ACB1B9094E34051 /* UIView+YPSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIView+YPSegment.h"; sourceTree = "<group>"; };
+		2397091C10CA413C97A29A8ECEEF84C4 /* YPSegmentBarConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentBarConfig.m; sourceTree = "<group>"; };
 		25012559A7D45D24D13424C95FF2B9E8 /* Pods-YPSegmentController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YPSegmentController_Example-dummy.m"; sourceTree = "<group>"; };
 		294F07A8D7916EBA842DD6A145415C86 /* Pods-YPSegmentController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YPSegmentController_Tests-dummy.m"; sourceTree = "<group>"; };
+		326328801A62E3A9F75F3CA606BCF256 /* YPSegmentController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentController.m; sourceTree = "<group>"; };
 		32A10E6059D628FF883145A7B5CFF8B9 /* Pods-YPSegmentController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YPSegmentController_Tests.modulemap"; sourceTree = "<group>"; };
 		35C5FD6B01C888F4ABA03AF522F129A2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3889438F499F2581EFB2B5CE25A273A8 /* UIColor+YPSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YPSegment.m"; sourceTree = "<group>"; };
 		398E7854E7E7F32A13DFB01578615211 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BC0BF09178648AECC16E6E89D3142DA /* Pods-YPSegmentController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-YPSegmentController_Example.modulemap"; sourceTree = "<group>"; };
+		3C27E5C2A8C8CF7358101053AD3DF709 /* YPSegmentBarButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentBarButton.m; sourceTree = "<group>"; };
 		3DCBDBD8D065323541B6218CD0E22760 /* YPSegmentController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YPSegmentController.xcconfig; sourceTree = "<group>"; };
-		579B156435577074FC13499602A38435 /* UIColor+YPSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+YPSegment.m"; sourceTree = "<group>"; };
 		6158CA79E9A3C41B7673048B442211A8 /* Pods-YPSegmentController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YPSegmentController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		61C9262731CA5F52EEE7D5265E3D7EF6 /* Pods-YPSegmentController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YPSegmentController_Example-umbrella.h"; sourceTree = "<group>"; };
-		6438364B90D99626EBAD683C83D0CCEE /* UIView+YPSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+YPSegment.m"; sourceTree = "<group>"; };
 		662DFDF4BD8CD6CF65D216615E8B2CED /* Pods-YPSegmentController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YPSegmentController_Tests-resources.sh"; sourceTree = "<group>"; };
 		6BBEC48BCF60B0D0C2E0BFD4C93482D5 /* Pods-YPSegmentController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YPSegmentController_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		705552254F88EA051567AA8538AAD2E5 /* UIColor+YPSegment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+YPSegment.h"; sourceTree = "<group>"; };
+		79445F0DAF30B4A20CF368992D8B9209 /* YPSegmentBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentBar.h; sourceTree = "<group>"; };
 		79DCD30832A99E4AD465C1131744B32C /* Pods-YPSegmentController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YPSegmentController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7BB4CBF99E3F08138D5E5A6D7BDA05CA /* UIView+YPSegment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+YPSegment.m"; sourceTree = "<group>"; };
 		7F11DF04561CF43A8F3C7D6985AFFDBE /* Pods-YPSegmentController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YPSegmentController_Tests-umbrella.h"; sourceTree = "<group>"; };
 		862DCF7D5D98A74635C2BF73545E02BF /* YPSegmentController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = YPSegmentController.modulemap; sourceTree = "<group>"; };
 		87B7A184480704D4D9E6E9CE31F5D055 /* YPSegmentController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YPSegmentController.framework; path = YPSegmentController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A1711B6DE3976BECE7C8840F15DCC89 /* YPSegmentBarConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentBarConfig.h; sourceTree = "<group>"; };
 		8A52D4EE2C1D9CA1E3118085073E213B /* Pods_YPSegmentController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YPSegmentController_Tests.framework; path = "Pods-YPSegmentController_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		91485ECC8BC9D90788EEA8BDDAF5254F /* Pods-YPSegmentController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YPSegmentController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		957B38EB95836A52D2BB3FF1A665462D /* YPSegmentBarConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentBarConfig.m; sourceTree = "<group>"; };
 		97E1FC4872E6E5CE635DAA4BC4454E4F /* YPSegmentController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YPSegmentController-prefix.pch"; sourceTree = "<group>"; };
-		9EEE9E92AFCFAAB2371DC766B75159CD /* YPSegmentBar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentBar.h; sourceTree = "<group>"; };
-		AA1FE61B1B4DD372F45E689B5C235838 /* YPSegmentControllerConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentControllerConfig.m; sourceTree = "<group>"; };
+		9965404BE6FA3F6E5554BD5B1811BB89 /* YPSegmentControllerConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentControllerConfig.m; sourceTree = "<group>"; };
+		9BEEFD187A3CD108CA9CE249567C22EB /* YPSegmentControllerConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentControllerConfig.h; sourceTree = "<group>"; };
+		A1E25A9A25FFD15B6B84F4A372A829A0 /* YPSegmentBarButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentBarButton.h; sourceTree = "<group>"; };
 		AFF99EDE4CE80631C6C9C09B9B0064C7 /* YPSegmentController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YPSegmentController-umbrella.h"; sourceTree = "<group>"; };
 		BBBBA6CE155C2AC3880A4B0013050ED6 /* Pods-YPSegmentController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YPSegmentController_Example-resources.sh"; sourceTree = "<group>"; };
 		BE2826DCAD8789D59E87993EB88FC121 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,9 +83,10 @@
 		DA02844C4ADC9B4CF29F90E1D0522D35 /* YPSegmentController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YPSegmentController-dummy.m"; sourceTree = "<group>"; };
 		DE23B0BEC48805095D9C0D664C8B5D90 /* Pods-YPSegmentController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YPSegmentController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E6E5B8D133603DDA7BAF6526C3824B68 /* Pods-YPSegmentController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YPSegmentController_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E8DF61FAA11BA9325A85CBA78492F335 /* YPSegmentController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentController.m; sourceTree = "<group>"; };
 		EA84F64A1318DD6DF3E5A042E052AA0E /* Pods-YPSegmentController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YPSegmentController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EFA1A0C4CB0EA11BBC2AA260CE034548 /* YPSegmentBar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = YPSegmentBar.m; sourceTree = "<group>"; };
 		F03D77EDE409F860F83E1D9A800C2397 /* Pods-YPSegmentController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YPSegmentController_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F0CC585128A57581ABDFB8F42F765624 /* YPSegmentBarConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = YPSegmentBarConfig.h; sourceTree = "<group>"; };
 		F50E41BBB8EC62C92E50A49D05ECAE5B /* Pods-YPSegmentController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YPSegmentController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +135,15 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		4ABEF7B6B258E7CBB24C1588287166F3 /* YPSegmentController */ = {
+			isa = PBXGroup;
+			children = (
+				D9AE879716A319DB3F1AF561420AE9D0 /* Classes */,
+			);
+			name = YPSegmentController;
+			path = YPSegmentController;
+			sourceTree = "<group>";
+		};
 		64F519A05C6C952787EEF29CB044F3EF /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				A41EF0B60281C1A1DAAC8CBF7F562D92 /* Support Files */,
-				B675A8AAEF2D71F87C77C34480B6D1FE /* YPSegmentController */,
+				4ABEF7B6B258E7CBB24C1588287166F3 /* YPSegmentController */,
 			);
 			name = YPSegmentController;
 			path = ../..;
@@ -157,26 +170,6 @@
 				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		7C3ED6C441DCA8598A430F600F5469B1 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				705552254F88EA051567AA8538AAD2E5 /* UIColor+YPSegment.h */,
-				579B156435577074FC13499602A38435 /* UIColor+YPSegment.m */,
-				136ECC1C9C8396E2FC30985390BCF914 /* UIView+YPSegment.h */,
-				6438364B90D99626EBAD683C83D0CCEE /* UIView+YPSegment.m */,
-				9EEE9E92AFCFAAB2371DC766B75159CD /* YPSegmentBar.h */,
-				0627369A1758A911A6A9B3B0A5D80F6B /* YPSegmentBar.m */,
-				8A1711B6DE3976BECE7C8840F15DCC89 /* YPSegmentBarConfig.h */,
-				957B38EB95836A52D2BB3FF1A665462D /* YPSegmentBarConfig.m */,
-				16DC0839CF3114CF63806069C35BBA13 /* YPSegmentController.h */,
-				E8DF61FAA11BA9325A85CBA78492F335 /* YPSegmentController.m */,
-				175863C66484C2E170C2C3956E0B17B3 /* YPSegmentControllerConfig.h */,
-				AA1FE61B1B4DD372F45E689B5C235838 /* YPSegmentControllerConfig.m */,
-			);
-			name = Classes;
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -222,15 +215,6 @@
 			path = "Example/Pods/Target Support Files/YPSegmentController";
 			sourceTree = "<group>";
 		};
-		B675A8AAEF2D71F87C77C34480B6D1FE /* YPSegmentController */ = {
-			isa = PBXGroup;
-			children = (
-				7C3ED6C441DCA8598A430F600F5469B1 /* Classes */,
-			);
-			name = YPSegmentController;
-			path = YPSegmentController;
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,28 +241,51 @@
 			path = "Target Support Files/Pods-YPSegmentController_Tests";
 			sourceTree = "<group>";
 		};
+		D9AE879716A319DB3F1AF561420AE9D0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				196742CE4979E29042D153BC6AFAD0AA /* UIColor+YPSegment.h */,
+				3889438F499F2581EFB2B5CE25A273A8 /* UIColor+YPSegment.m */,
+				1AAA2EC2F258174D6ACB1B9094E34051 /* UIView+YPSegment.h */,
+				7BB4CBF99E3F08138D5E5A6D7BDA05CA /* UIView+YPSegment.m */,
+				79445F0DAF30B4A20CF368992D8B9209 /* YPSegmentBar.h */,
+				EFA1A0C4CB0EA11BBC2AA260CE034548 /* YPSegmentBar.m */,
+				A1E25A9A25FFD15B6B84F4A372A829A0 /* YPSegmentBarButton.h */,
+				3C27E5C2A8C8CF7358101053AD3DF709 /* YPSegmentBarButton.m */,
+				F0CC585128A57581ABDFB8F42F765624 /* YPSegmentBarConfig.h */,
+				2397091C10CA413C97A29A8ECEEF84C4 /* YPSegmentBarConfig.m */,
+				0410C69EDF2344C4FD0CF8B5DC1DC896 /* YPSegmentController.h */,
+				326328801A62E3A9F75F3CA606BCF256 /* YPSegmentController.m */,
+				9BEEFD187A3CD108CA9CE249567C22EB /* YPSegmentControllerConfig.h */,
+				9965404BE6FA3F6E5554BD5B1811BB89 /* YPSegmentControllerConfig.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0F98D7833D3DD60B25F154E367B78A3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6312797D415C01F926BC9048868F226 /* UIColor+YPSegment.h in Headers */,
+				D5F2CCCA5550DBA7199CB6156E8DB178 /* UIView+YPSegment.h in Headers */,
+				7C76517B41318EB9F344828AE67B98B1 /* YPSegmentBar.h in Headers */,
+				769AB72AAD1E308D0C73444EDA34DBAC /* YPSegmentBarButton.h in Headers */,
+				A5A7EF6F339DC62EB4A6F7B46C6B0408 /* YPSegmentBarConfig.h in Headers */,
+				CC4AD22EEAB934240608CD27A5288979 /* YPSegmentController-umbrella.h in Headers */,
+				F78F08D076FB9049B77599A02E65D5D6 /* YPSegmentController.h in Headers */,
+				04207483E3A728E55F19030215CD488B /* YPSegmentControllerConfig.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26B3DF733E80634E70AC5E2198AFFA72 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				413F9CCFD90CD353264A237B64AF9F87 /* Pods-YPSegmentController_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		627B38F87AF0F73C5F3C62808EDE6198 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E9DBDCAAAE8951F008090CE13075C081 /* UIColor+YPSegment.h in Headers */,
-				8309B8382C70DDE92CE16E81A707DEE4 /* UIView+YPSegment.h in Headers */,
-				B776F6523FD56F04A23D5E78655ACEF3 /* YPSegmentBar.h in Headers */,
-				E121D7CC78FB367CC335C66863F8841C /* YPSegmentBarConfig.h in Headers */,
-				7E1FE35E0BD478D9A45A7F1133670B9B /* YPSegmentController-umbrella.h in Headers */,
-				9DBBBFE2BA1F55843B1F67C62257C5B7 /* YPSegmentController.h in Headers */,
-				5D12CA0DDC49B9BF4EA29B9308323654 /* YPSegmentControllerConfig.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,9 +339,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A9CC826CCFF35090E9AFB6B221E9397D /* Build configuration list for PBXNativeTarget "YPSegmentController" */;
 			buildPhases = (
-				97A606BA5B1C5CE6FDF7CE24F6D368EE /* Sources */,
+				8EE9159637BE67203742500637BF614F /* Sources */,
 				1B8B088463B5B730E25C1DF299619528 /* Frameworks */,
-				627B38F87AF0F73C5F3C62808EDE6198 /* Headers */,
+				0F98D7833D3DD60B25F154E367B78A3C /* Headers */,
 			);
 			buildRules = (
 			);
@@ -390,17 +397,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97A606BA5B1C5CE6FDF7CE24F6D368EE /* Sources */ = {
+		8EE9159637BE67203742500637BF614F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEB74E38342E64B1F3B88C913B532925 /* UIColor+YPSegment.m in Sources */,
-				370551192A0AF23E2EE7FCBC85A0A043 /* UIView+YPSegment.m in Sources */,
-				6E0943AFF1667BC5AA6A6063EA4FA8D3 /* YPSegmentBar.m in Sources */,
-				52AC25EBFAE2522086E4FCF669CA85F2 /* YPSegmentBarConfig.m in Sources */,
-				5E3142299148D18C8AA289BDCDCBB6D0 /* YPSegmentController-dummy.m in Sources */,
-				687A68D28183B843E2D35E1EF537E6B5 /* YPSegmentController.m in Sources */,
-				CA04BEF0143F07A0A98FB428A3EB2BD1 /* YPSegmentControllerConfig.m in Sources */,
+				737189924A907360AAA61BE8A8593612 /* UIColor+YPSegment.m in Sources */,
+				FFEC896FF2969C633D1D21B2CF2025B2 /* UIView+YPSegment.m in Sources */,
+				237879372F4E1E8F2EB4D578C0C26B06 /* YPSegmentBar.m in Sources */,
+				149A224129054ADE4E92E417024131F3 /* YPSegmentBarButton.m in Sources */,
+				7354AA73330BF148BFCD51B481F3C740 /* YPSegmentBarConfig.m in Sources */,
+				400B14D1C30746EC03A308F0903E053C /* YPSegmentController-dummy.m in Sources */,
+				0316F4183E00D39C03C7F17FDE0A9943 /* YPSegmentController.m in Sources */,
+				BC6712D920098D341958FEC05A6480F1 /* YPSegmentControllerConfig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

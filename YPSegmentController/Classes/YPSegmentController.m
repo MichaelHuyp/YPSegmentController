@@ -10,17 +10,6 @@
 #import "UIView+YPSegment.h"
 #import <objc/message.h>
 
-#ifndef YPSYNTH_DYNAMIC_PROPERTY_OBJECT
-#define YPSYNTH_DYNAMIC_PROPERTY_OBJECT(_getter_, _setter_, _association_, _type_) \
-- (void)_setter_ : (_type_)object { \
-[self willChangeValueForKey:@#_getter_]; \
-objc_setAssociatedObject(self, _cmd, object, OBJC_ASSOCIATION_ ## _association_); \
-[self didChangeValueForKey:@#_getter_]; \
-} \
-- (_type_)_getter_ { \
-return objc_getAssociatedObject(self, @selector(_setter_:)); \
-}
-#endif
 
 @interface UIViewController ()
 
@@ -140,7 +129,7 @@ return objc_getAssociatedObject(self, @selector(_setter_:)); \
 - (YPSegmentBar *)segmentBar
 {
     if (!_segmentBar) {
-        YPSegmentBar *segmentBar = [[YPSegmentBar alloc] init];
+        YPSegmentBar *segmentBar = [[YPSegmentBar alloc] initWithFrame:CGRectMake(self.config.segmentBarLeft, self.config.segmentBarTop, self.config.segmentBarWidth, self.config.segmentBarHeight)];
         segmentBar.delegate = self;
         [self.view addSubview:segmentBar];
         _segmentBar = segmentBar;
