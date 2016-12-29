@@ -10,11 +10,11 @@
 ![demo1](https://lh3.googleusercontent.com/KeWqSD0cMc6MRT1o30Ao4vjlKEAsNGpnh0XW_B-3Yr9nhBMfqHkNVzjIYk5J9tOORUVG6N21AWVtZyoJB8a-M22YJX0jtVgYikCECe1Z-kQOy524yyjisk82Nh7Z23LqYNuppla8D1LskPAIRSext52SxNMMoAvfrXrfNDOgCKBHFdIr5z8bDkGvQfNw890RI1NgXA00hH96oHxA8Wb6VysFDFADuTnZZAV2PTVm539YzvWqUN81iqL356sI2sdtGJW2lFOf15Z_HmHPF3V9SE3cg48A4PIDvk9TorujO7_BSRMOmdLJhl4qjIY9-BgshJJRe-Gh6fMyilHW84oz1EVqJgtKfjCBNlYvyPiBHS67le-R5DWwHZiQC8EHfQ6h8_YhVzFOzBiMtczmt-epDeb5Ppv90zTshlYALM0nMziDoOCSkcFAgrV_pUbgrTdobekbzOYRl2wjZ6kknvGzn0ESLVNMp70cLXv1nQOhoEFK-1HrmvJVTMe-s5DI8K6nvuScnJ46y6sWy6x7kRdnwJViEWvbM0KZpeDuY0tgeCBk1wlxPG3lQPSlaucGzvQoVGoaYXSLFe1b7q7cFXsppr2OaOkCmFc57ZSPz1yUvN9tIsjZADU=w990-h693-no)
 
 目前完成功能:
-1.滑动模式 Normal
-2.滑动模式 Center
-3.颜色渐变
-4.文字大小渐变
-5.滑动进度模式Progress
+- 1.滑动模式 Normal
+- 2.滑动模式 Center
+- 3.颜色渐变
+- 4.文字大小渐变
+- 5.滑动进度模式Progress
 
 ### 使用说明书
 
