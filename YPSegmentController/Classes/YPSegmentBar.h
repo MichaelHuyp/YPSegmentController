@@ -44,8 +44,10 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 @property (nonatomic, assign) CGFloat indicatorProgress;
 
 /** 是否开启标题颜色渐变 默认为No */
-@property (nonatomic, assign) BOOL enableTitleGradient;
+@property (nonatomic, assign) BOOL enableTitleColorGradient;
 
+/** 是否开启标题大小渐变 默认为No */
+@property (nonatomic, assign) BOOL enableTitleSizeGradient;
 
 /**
  *  配置Bar的各种参数

@@ -26,6 +26,9 @@
 /** 按钮文字字体 */
 @property (nonatomic, strong) UIFont *itemFont;
 
+/** 字体缩放比例差值 */
+@property (nonatomic, assign) CGFloat fontChangeDelta;
+
 /** 指示器颜色 */
 @property (nonatomic, strong) UIColor *indicatorColor;
 

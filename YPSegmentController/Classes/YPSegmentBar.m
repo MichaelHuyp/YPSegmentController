@@ -197,37 +197,46 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     _indicatorProgress = indicatorProgress;
     
+    // 进度
+    CGFloat progress = (indicatorProgress - (int)indicatorProgress);
+    
     if (self.linkMode == YPSegmentBarLinkModeProgress) {
         // 调节指示器随着进度变化而变化
         [UIView animateWithDuration:0.2f animations:^{
             if (currentBtn.width < nextBtn.width) {
                 // 左按钮宽度小于右按钮宽度 宽度应该增长
-                self.indicatorView.width = (indicatorProgress - (int)indicatorProgress) * (fabs(currentBtn.width - nextBtn.width)) + currentBtn.width;
+                self.indicatorView.width = progress * (fabs(currentBtn.width - nextBtn.width)) + currentBtn.width;
             } else if (currentBtn.width > nextBtn.width) {
                 // 左按钮宽度大于右按钮宽度 宽度应该减小
-                self.indicatorView.width = currentBtn.width - (indicatorProgress - (int)indicatorProgress) * (fabs(currentBtn.width - nextBtn.width));
+                self.indicatorView.width = currentBtn.width - progress * (fabs(currentBtn.width - nextBtn.width));
             }
             
             // 中心点的位置应该为左右宽度的一半 加上间距 乘以 当前进度(0~1) 再加上左按钮的centerX
-            self.indicatorView.centerX =  currentBtn.centerX + (indicatorProgress - (int)indicatorProgress) * (currentBtn.width * 0.5 + nextBtn.width * 0.5 + _caculateMargin);
+            self.indicatorView.centerX =  currentBtn.centerX + progress * (currentBtn.width * 0.5 + nextBtn.width * 0.5 + _caculateMargin);
         }];
     }
     
-    if (!self.enableTitleGradient) return;
+    if (self.enableTitleColorGradient) {
+        // 渐变色处理
+        CGFloat currentR = _selectedColors[0] + _deltaR * progress;
+        CGFloat currentG = _selectedColors[1] + _deltaG * progress;
+        CGFloat currentB = _selectedColors[2] + _deltaB * progress;
+        UIColor *currentColor = [UIColor colorWithRed:currentR green:currentG blue:currentB alpha:1.0f];
+        [currentBtn setTitleColor:currentColor forState:UIControlStateSelected];
+        [currentBtn setTitleColor:currentColor forState:UIControlStateNormal];
+        CGFloat nextR = _normalColors[0] - _deltaR * progress;
+        CGFloat nextG = _normalColors[1] - _deltaG * progress;
+        CGFloat nextB = _normalColors[2] - _deltaB * progress;
+        UIColor *nextColor = [UIColor colorWithRed:nextR green:nextG blue:nextB alpha:1.0f];
+        [nextBtn setTitleColor:nextColor forState:UIControlStateNormal];
+        [nextBtn setTitleColor:nextColor forState:UIControlStateSelected];
+    }
     
-    // 渐变色处理
-    CGFloat currentR = _selectedColors[0] + _deltaR * (indicatorProgress - (int)indicatorProgress);
-    CGFloat currentG = _selectedColors[1] + _deltaG * (indicatorProgress - (int)indicatorProgress);
-    CGFloat currentB = _selectedColors[2] + _deltaB * (indicatorProgress - (int)indicatorProgress);
-    UIColor *currentColor = [UIColor colorWithRed:currentR green:currentG blue:currentB alpha:1.0f];
-    [currentBtn setTitleColor:currentColor forState:UIControlStateSelected];
-    [currentBtn setTitleColor:currentColor forState:UIControlStateNormal];
-    CGFloat nextR = _normalColors[0] - _deltaR * (indicatorProgress - (int)indicatorProgress);
-    CGFloat nextG = _normalColors[1] - _deltaG * (indicatorProgress - (int)indicatorProgress);
-    CGFloat nextB = _normalColors[2] - _deltaB * (indicatorProgress - (int)indicatorProgress);
-    UIColor *nextColor = [UIColor colorWithRed:nextR green:nextG blue:nextB alpha:1.0f];
-    [nextBtn setTitleColor:nextColor forState:UIControlStateNormal];
-    [nextBtn setTitleColor:nextColor forState:UIControlStateSelected];
+    if (self.enableTitleSizeGradient) {
+        // 字体大小渐变
+        nextBtn.transform = CGAffineTransformMakeScale(1 + (progress * (self.config.fontChangeDelta - 1)), 1 + (progress * (self.config.fontChangeDelta - 1)));
+        currentBtn.transform = CGAffineTransformMakeScale(self.config.fontChangeDelta - (progress * (self.config.fontChangeDelta - 1)), self.config.fontChangeDelta - (progress * (self.config.fontChangeDelta - 1)));
+    }
     
 }
 
@@ -270,6 +279,22 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     [btn setTitleColor:self.config.itemTitleNormalColor forState:UIControlStateNormal];
     [btn setTitleColor:self.config.itemTitleSelectColor forState:UIControlStateSelected];
+    
+    if (self.enableTitleSizeGradient) {
+        // 字体渐变大小
+        if (!_lastBtn || (_lastBtn == btn)) {
+            btn.transform = CGAffineTransformIdentity;
+            btn.transform = CGAffineTransformMakeScale(self.config.fontChangeDelta, self.config.fontChangeDelta);
+        } else {
+            [UIView animateWithDuration:0.25 animations:^{
+                btn.transform = CGAffineTransformMakeScale(self.config.fontChangeDelta, self.config.fontChangeDelta);
+                _lastBtn.transform = CGAffineTransformIdentity;
+            }];
+        }
+    }
+    
+
+
     
     _selectIndex = btn.tag;
     

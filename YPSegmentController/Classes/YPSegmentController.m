@@ -208,7 +208,7 @@ return objc_getAssociatedObject(self, @selector(_setter_:)); \
     // 拖拽比例
     CGFloat bili = scrollView.contentOffset.x / scrollView.width;
     
-    if (self.segmentBar.linkMode == YPSegmentBarScrollModeNormal && !self.segmentBar.enableTitleGradient) return;
+    if (self.segmentBar.linkMode == YPSegmentBarScrollModeNormal && !self.segmentBar.enableTitleSizeGradient && !self.segmentBar.enableTitleColorGradient) return;
     
     self.segmentBar.indicatorProgress = bili;
 }
