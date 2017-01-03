@@ -192,8 +192,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if (!scrollView.dragging) return;
-    
     // 拖拽比例
     CGFloat bili = scrollView.contentOffset.x / scrollView.width;
     
