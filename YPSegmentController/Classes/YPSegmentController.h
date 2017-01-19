@@ -17,8 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 /** 选项条 */
 @property (nonatomic, weak) YPSegmentBar *segmentBar;
 
-/** 是否开启预加载功能 */
+/** 是否开启预加载功能 默认为NO */
 @property (nonatomic, assign) BOOL prefetchingEnabled;
+
+/** 切换控制器时是否要开启动画过渡效果 默认为NO */
+@property (nonatomic, assign) BOOL switchControllerAnimationEnabled;
 
 /** 背景View */
 @property (nonatomic, weak) UIView *backgroundView;

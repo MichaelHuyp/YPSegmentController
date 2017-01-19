@@ -56,6 +56,9 @@
     // 开启预加载功能
 //    self.segmentController.prefetchingEnabled = YES;
     
+    // 切换控制器有过渡动画效果
+    self.segmentController.switchControllerAnimationEnabled = YES;
+    
     // 是否开启渐变色
     self.segmentController.segmentBar.enableTitleColorGradient = YES;
     self.segmentController.segmentBar.enableTitleSizeGradient = YES;

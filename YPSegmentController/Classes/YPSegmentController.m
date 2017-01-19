@@ -104,7 +104,14 @@
     [self addChildVcViewToIndex:index];
     
     // 滚动到对应位置
-    [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
+    if (self.switchControllerAnimationEnabled) {
+        [UIView animateWithDuration:0.25f animations:^{
+            [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
+        }];
+    } else {
+        [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
+    }
+
     
     // 是否开启预加载功能
     if (!self.prefetchingEnabled) return;

@@ -206,7 +206,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     
     if (self.linkMode == YPSegmentBarLinkModeProgress) {
         // 调节指示器随着进度变化而变化
-        [UIView animateWithDuration:0.2f animations:^{
+        [UIView animateWithDuration:0.25f animations:^{
             if (currentBtn.width < nextBtn.width) {
                 // 左按钮宽度小于右按钮宽度 宽度应该增长
                 self.indicatorView.width = progress * (fabs(currentBtn.width - nextBtn.width)) + currentBtn.width;
@@ -290,7 +290,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
             btn.transform = CGAffineTransformIdentity;
             btn.transform = CGAffineTransformMakeScale(self.config.fontChangeDelta, self.config.fontChangeDelta);
         } else {
-            [UIView animateWithDuration:0.25 animations:^{
+            [UIView animateWithDuration:0.25f animations:^{
                 btn.transform = CGAffineTransformMakeScale(self.config.fontChangeDelta, self.config.fontChangeDelta);
                 _lastBtn.transform = CGAffineTransformIdentity;
             }];
@@ -303,7 +303,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     btn.selected = YES;
     _lastBtn = btn;
  
-    [UIView animateWithDuration:0.2f animations:^{
+    [UIView animateWithDuration:0.25f animations:^{
         self.indicatorView.width = btn.width;
         self.indicatorView.centerX = btn.centerX;
     }];
