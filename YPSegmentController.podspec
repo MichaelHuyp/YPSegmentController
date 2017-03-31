@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'YPSegmentController'
-  s.version          = '1.5.0'
+  s.version          = '1.6.0'
   s.summary          = '好用的选项卡控制器控件'
 
 # This description is used to generate tags and improve search results.

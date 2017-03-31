@@ -11,7 +11,6 @@
 #import "UIColor+YPSegment.h"
 #import "YPSegmentBarButton.h"
 
-#define kWidthDelta 0
 
 NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSelectionDidChangeNotification";
 
@@ -20,8 +19,8 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     // 记录最后一次点击的按钮
     YPSegmentBarButton *_lastBtn;
     
-    // 记录最合适的间距
-    CGFloat _caculateMargin;
+    // 记录最合适的内边距(按钮与按钮之间)
+    CGFloat _caculatePadding;
     
     // 记录按钮普通状态下的RGB
     CGFloat _normalColors[3];
@@ -121,23 +120,37 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     CGFloat totoalBtnWidth = 0;
     for (YPSegmentBarButton *btn in self.itemBtns) {
         [btn sizeToFit];
-        totoalBtnWidth += btn.width + kWidthDelta;
+        totoalBtnWidth += btn.width + self.config.itemWidthDelta;
     }
     
     // 计算最适合的间距
-    CGFloat caculateMargin = (self.width - totoalBtnWidth) / (self.items.count + 1);
-    if (caculateMargin < self.config.minMargin) caculateMargin = self.config.minMargin;
-    _caculateMargin = caculateMargin;
+    CGFloat caculatePadding = (self.width - totoalBtnWidth - self.config.itemMargin * 2) / (self.items.count - 1);
+    if (caculatePadding < self.config.minMargin) caculatePadding = self.config.minMargin;
+    _caculatePadding = caculatePadding;
     
     // 按钮布局
-    CGFloat lastX = caculateMargin;
+    CGFloat lastX = self.config.itemMargin;
+    if (self.config.isSplitBtnWidth) {
+        lastX = 0;
+    }
+    
     for (YPSegmentBarButton *btn in self.itemBtns) {
         [btn sizeToFit];
         btn.top = 0;
-        btn.left = lastX;
         btn.height = self.height;
-        btn.width = btn.width + kWidthDelta;
-        lastX += btn.width + caculateMargin;
+        if (self.config.isSplitBtnWidth) { // 如果平分按钮宽度 默认是不能滚动的
+            btn.left = lastX;
+            btn.width = self.width / self.items.count;
+            lastX += btn.width;
+        } else {
+            btn.left = lastX;
+            btn.width = btn.width + self.config.itemWidthDelta;
+            if (btn.tag == self.itemBtns.count - 1) {
+                lastX += btn.width + self.config.itemMargin;
+            } else {
+                lastX += btn.width + caculatePadding;
+            }
+        }
     }
     
     // 设置contentSize
@@ -149,8 +162,14 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     self.indicatorView.width = btn.width;
     self.indicatorView.centerX = btn.centerX;
     self.indicatorView.height = self.config.indicatorHeight;
-    self.indicatorView.top = self.height - self.indicatorView.height;
+    self.indicatorView.top = self.height - self.indicatorView.height - self.config.indicatorPaddingWithBottom;
     [self.contentView bringSubviewToFront:self.indicatorView];
+    
+    // 指示器圆角
+    if (self.config.indicatorRounded) {
+        self.indicatorView.layer.cornerRadius = self.indicatorView.height * 0.5;
+    }
+    
     
 }
 
@@ -207,16 +226,21 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     if (self.linkMode == YPSegmentBarLinkModeProgress) {
         // 调节指示器随着进度变化而变化
         [UIView animateWithDuration:0.25f animations:^{
-            if (currentBtn.width < nextBtn.width) {
-                // 左按钮宽度小于右按钮宽度 宽度应该增长
-                self.indicatorView.width = progress * (fabs(currentBtn.width - nextBtn.width)) + currentBtn.width;
-            } else if (currentBtn.width > nextBtn.width) {
-                // 左按钮宽度大于右按钮宽度 宽度应该减小
-                self.indicatorView.width = currentBtn.width - progress * (fabs(currentBtn.width - nextBtn.width));
-            }
             
-            // 中心点的位置应该为左右宽度的一半 加上间距 乘以 当前进度(0~1) 再加上左按钮的centerX
-            self.indicatorView.centerX =  currentBtn.centerX + progress * (currentBtn.width * 0.5 + nextBtn.width * 0.5 + _caculateMargin);
+            if (!self.config.isSplitBtnWidth) {
+                if (currentBtn.width < nextBtn.width) {
+                    // 左按钮宽度小于右按钮宽度 宽度应该增长
+                    self.indicatorView.width = progress * (fabs(currentBtn.width - nextBtn.width)) + currentBtn.width;
+                } else if (currentBtn.width > nextBtn.width) {
+                    // 左按钮宽度大于右按钮宽度 宽度应该减小
+                    self.indicatorView.width = currentBtn.width - progress * (fabs(currentBtn.width - nextBtn.width));
+                }
+                // 中心点的位置应该为左右宽度的一半 加上间距 乘以 当前进度(0~1) 再加上左按钮的centerX
+                self.indicatorView.centerX =  currentBtn.centerX + progress * (currentBtn.width * 0.5 + nextBtn.width * 0.5 + _caculatePadding);
+            } else {
+                // 如果平分宽度的话 就不用计算指示器的宽度了 因为指示器宽度是不变的 同理也不需要加上所计算的间距
+                self.indicatorView.centerX =  currentBtn.centerX + progress * (currentBtn.width * 0.5 + nextBtn.width * 0.5);
+            }
         }];
     }
     

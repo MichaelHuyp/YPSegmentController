@@ -20,9 +20,14 @@
     config.itemTitleSelectColor = [UIColor redColor];
     config.indicatorColor = [UIColor redColor];
     config.indicatorHeight = 2;
+    config.indicatorPaddingWithBottom = 0;
     config.minMargin = 30;
     config.indicatorHidden = NO;
+    config.indicatorRounded = YES;
     config.onNaviBarWidth = [UIScreen mainScreen].bounds.size.width;
+    config.isSplitBtnWidth = NO;
+    config.itemMargin = 15;
+    config.itemWidthDelta = 0;
     return config;
 }
 

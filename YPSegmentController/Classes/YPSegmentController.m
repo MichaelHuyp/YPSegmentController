@@ -74,7 +74,7 @@
 
     if ([self.segmentBar.superview isKindOfClass:[UINavigationBar class]]) {
         self.segmentBar.frame = CGRectMake(0, 0, self.navigationController.navigationBar.width, self.navigationController.navigationBar.height);
-        self.contentView.frame = CGRectMake(self.navigationController.navigationBar.left, self.navigationController.navigationBar.bottom, self.view.width, self.view.height - self.navigationController.navigationBar.bottom);
+        self.contentView.frame = CGRectMake(self.navigationController.navigationBar.left, 0, self.view.width, self.view.height);
     } else {
         self.segmentBar.frame = CGRectMake(self.config.segmentBarLeft, self.config.segmentBarTop, self.config.segmentBarWidth, self.config.segmentBarHeight);
         self.contentView.frame = CGRectMake(0, self.segmentBar.bottom, self.view.width, self.view.height - self.segmentBar.bottom);
