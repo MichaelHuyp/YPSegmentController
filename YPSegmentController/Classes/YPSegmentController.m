@@ -28,6 +28,9 @@
 @end
 
 @implementation YPSegmentController
+{
+    BOOL _initAnimatedFlag;
+}
 
 #pragma mark - Public
 - (void)setUpWithItems: (NSArray <UIViewController *>*)items
@@ -88,6 +91,12 @@
     
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    _initAnimatedFlag = YES;
+}
+
 #pragma mark - Private
 - (void)addChildVcViewToIndex:(NSInteger)index
 {
@@ -105,9 +114,13 @@
     
     // 滚动到对应位置
     if (self.switchControllerAnimationEnabled) {
-        [UIView animateWithDuration:0.25f animations:^{
+        if (_initAnimatedFlag) {
+            [UIView animateWithDuration:0.25f animations:^{
+                [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
+            }];
+        } else {
             [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
-        }];
+        }
     } else {
         [self.contentView setContentOffset:CGPointMake(index * self.contentView.width, 0) animated:NO];
     }

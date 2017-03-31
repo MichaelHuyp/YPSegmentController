@@ -24,7 +24,6 @@ typedef NS_ENUM(NSInteger, YPSegmentBarLinkMode) {
 
 @interface YPSegmentBar : UIView
 
-
 /** 数据源 */
 @property (nonatomic, copy) NSArray <NSString *> *items;
 

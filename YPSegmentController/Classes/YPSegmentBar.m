@@ -87,13 +87,12 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     _deltaG = _normalColors[1] - _selectedColors[1];
     _deltaB = _normalColors[2] - _selectedColors[2];
     
-    
-    
-    
     // 刷新布局
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
+
+
 
 #pragma mark - Override
 - (instancetype)initWithFrame:(CGRect)frame
@@ -327,11 +326,9 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
     btn.selected = YES;
     _lastBtn = btn;
  
-    [UIView animateWithDuration:0.25f animations:^{
-        self.indicatorView.width = btn.width;
-        self.indicatorView.centerX = btn.centerX;
-    }];
-    
+    self.indicatorView.width = btn.width;
+    self.indicatorView.centerX = btn.centerX;
+
 
     // 滚动模式
     if (self.scrollMode == YPSegmentBarScrollModeNormal) {
@@ -349,6 +346,7 @@ NSString * const YPSegmentBarSelectionDidChangeNotification = @"YPSegmentBarSele
         if (scrollX > self.contentView.contentSize.width - self.contentView.width) {
             scrollX = self.contentView.contentSize.width - self.contentView.width;
         }
+        
         [self.contentView setContentOffset:CGPointMake(scrollX, 0) animated:YES];
         
 
